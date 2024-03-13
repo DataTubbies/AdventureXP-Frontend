@@ -1,87 +1,95 @@
-import { API_URL } from "../settings";
-import { makeOptions, handleHttpErrors } from "./fetchUtilis";
-const CATEGORIES_URL = API_URL + "/categories";
-const RECIPE_URL = API_URL + "/recipes";
-const INFO_URL = API_URL + "/info";
+const endpoint = "http://localhost:9002";
+const activityURL = endpoint + "/activities";
+const bookingURL = endpoint + "/bookings";
+const signupUrl = endpoint + "/signup";
 
-interface Recipe {
-  id: number | null;
+interface Booking {
+  companyName: string;
+  customerFirstName: string;
+  customerLastName: string;
+  streetName: string;
+  streetNumber: string;
+  zipCode: string;
+  city: string;
+  phoneNumber: string;
+  bookingNumber: string;
+  activity: string;
+}
+
+interface Activity {
+  capacity: string;
+  ageLimit: string;
+  isActive: boolean;
+  cancelLimit: string;
+  timeSpan: string;
   name: string;
-  category: string;
-  instructions: string;
-  thumb: string;
-  youTube: string;
-  ingredients: string;
-  source: string;
+  price: string;
+  base64image: string;
+}
+interface User {
+  isCompany: boolean;
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  streetName: string;
+  streetNumber: string;
+  zipCode: string;
+  city: string;
+  phoneNumber: string;
+  companyName: string | null;
+  cvr: string | null;
 }
 
-interface Info {
-  reference: string;
-  created: string;
-  info: string;
+async function getActivities() {
+  const res = await fetch(activityURL);
+  return await res.json();
 }
 
-let categories: Array<string> = [];
-//const recipes: Array<Recipe> = [];
-
-async function getCategories(): Promise<Array<string>> {
-  if (categories.length > 0) return [...categories];
-  const res = await fetch(CATEGORIES_URL).then(handleHttpErrors);
-  categories = [...res];
-  return categories;
-}
-async function getRecipes(category: string | null): Promise<Array<Recipe>> {
-  //if (recipes.length > 0) return [...recipes];
-  console.log("category", category);
-  const queryParams = category ? "?category=" + category : "";
-  return fetch(RECIPE_URL + queryParams).then(handleHttpErrors);
-}
-async function getRecipe(id: number): Promise<Recipe> {
-  //if (recipes.length > 0) return [...recipes];
-  return fetch(RECIPE_URL + "/" + id).then(handleHttpErrors);
+async function getBookings() {
+  const res = await fetch(bookingURL);
+  return await res.json();
 }
 
-async function addRecipe(newRecipe: Recipe): Promise<Recipe> {
-  const method = newRecipe.id ? "PUT" : "POST";
-  const options = makeOptions(method, newRecipe);
-  const URL = newRecipe.id ? `${RECIPE_URL}/${newRecipe.id}` : RECIPE_URL;
-  return fetch(URL, options).then(handleHttpErrors);
-}
-
-async function addCategory(newCategory: string): Promise<string> {
-  const categoryObj = {
-    name: newCategory,
-  };
-  const options: RequestInit = {
+async function addBooking(booking: Booking) {
+  const options = {
     method: "POST",
     headers: {
       "Content-type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + localStorage.getItem("token"),
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
-    body: JSON.stringify(categoryObj),
+    body: JSON.stringify(booking),
   };
-
-  return fetch(CATEGORIES_URL, options).then(handleHttpErrors);
+  const res = await fetch(bookingURL, options);
+  return await res.json();
 }
 
-async function deleteRecipe(id: number): Promise<Recipe> {
-  const options = makeOptions("DELETE", null);
-  return fetch(`${RECIPE_URL}/${id}`, options).then(handleHttpErrors);
+async function addActivities(activity: Activity) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(activity),
+  };
+  const res = await fetch(activityURL, options);
+  return await res.json();
 }
 
-async function getInfo(): Promise<Info> {
-  return fetch(INFO_URL).then(handleHttpErrors);
+async function signUp(user: User) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(user),
+  };
+  const res = await fetch(signupUrl, options);
+  return await res.json();
 }
 
-export type { Recipe, Info };
-// eslint-disable-next-line react-refresh/only-export-components
-export {
-  getCategories,
-  getRecipes,
-  getRecipe,
-  addRecipe,
-  addCategory,
-  deleteRecipe,
-  getInfo,
-};
+export { getActivities, getBookings, addBooking, addActivities, signUp };
