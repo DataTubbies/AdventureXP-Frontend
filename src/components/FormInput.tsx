@@ -7,7 +7,7 @@ interface FormInputProps {
 export default function FormInput({ label, name, type }: FormInputProps) {
   return (
     <div>
-      <label className="block mb-2 text-sm font-bold dark:text-white ">
+      <label className="block mb-2 text-sm font-bold dark:text-white">
         {label}
       </label>
       <input

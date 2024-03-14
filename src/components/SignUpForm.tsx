@@ -43,7 +43,7 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
         </h1>
 
         <form
-          className=" grid-cols-2 grid gap-4 w-2/3"
+          className="grid-cols-2 grid gap-4 w-2/3"
           action="#"
           onSubmit={handleSubmit}
         >
