@@ -93,3 +93,4 @@ async function signUp(user: User) {
 }
 
 export { getActivities, getBookings, addBooking, addActivities, signUp };
+export type { Booking, Activity, User };
