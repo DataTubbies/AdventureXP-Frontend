@@ -5,16 +5,8 @@ export default function AuthStatus() {
   const auth = useAuth();
 
   if (!auth.isLoggedIn()) {
-    return (
-      <li>
-        <NavLink to="/login">Log ind</NavLink>
-      </li>
-    );
+    return <NavLink to="/login">Log ind</NavLink>;
   } else {
-    return (
-      <li>
-        <NavLink to="/logout">Logout (Logged in as {auth.username}) </NavLink>
-      </li>
-    );
+    return <NavLink to="/logout">Logout (Logged in as {auth.username}) </NavLink>;
   }
 }

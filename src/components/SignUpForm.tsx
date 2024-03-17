@@ -38,15 +38,9 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
   return (
     <>
       <div className="bg-black-100 h-[100vh] p-6 space-y-4 md:space-y-6 sm:p-8 ">
-        <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl dark:text-white">
-          Opret en profil 🥸
-        </h1>
+        <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl dark:text-white">Opret en profil 🥸</h1>
 
-        <form
-          className="grid-cols-2 grid gap-4 w-2/3"
-          action="#"
-          onSubmit={handleSubmit}
-        >
+        <form className="grid-cols-2 grid gap-4 w-2/3" action="#" onSubmit={handleSubmit}>
           {customerType === "company" && (
             <>
               <FormInput label="Firma Navn" name="companyName" type="text" />
@@ -64,10 +58,7 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
           <FormInput label="Username" name="username" type="text" />
 
           <div>
-            <label
-              htmlFor="password"
-              className="block mb-2 text-sm font-bold text-black-900 dark:text-white"
-            >
+            <label htmlFor="password" className="block mb-2 text-sm font-bold text-black-900 dark:text-white">
               Adgangskode
             </label>
             <input
@@ -80,10 +71,7 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
             />
           </div>
           <div>
-            <label
-              htmlFor="confirm-password"
-              className="block mb-2 text-sm font-bold text-black-900 dark:text-white"
-            >
+            <label htmlFor="confirm-password" className="block mb-2 text-sm font-bold text-black-900 dark:text-white">
               Bekræft Adgangskode
             </label>
             <input
@@ -106,15 +94,9 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
               />
             </div>
             <div className="ml-3 text-sm">
-              <label
-                htmlFor="terms"
-                className="font-light text-black-500 dark:text-black-300"
-              >
+              <label htmlFor="terms" className="font-light text-black-500 dark:text-black-300">
                 I accept the
-                <a
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  href="#"
-                >
+                <a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">
                   Terms and Conditions
                 </a>
               </label>
@@ -122,16 +104,13 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
           </div>
           <button
             type="submit"
-            className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            className="w-full text-black-50 bg-astronaut-blue-900 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
             Opret
           </button>
           <p className="text-sm font-light text-black-500 dark:text-black-400">
             Har du allerede en profil?
-            <a
-              href="#"
-              className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-            >
+            <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
               Log ind her
             </a>
           </p>
