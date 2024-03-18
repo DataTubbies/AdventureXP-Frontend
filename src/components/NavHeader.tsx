@@ -9,7 +9,7 @@ export default function NavHeader() {
     <>
       <nav className="bg-black-950  border-gray-200 text-black-50">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="https://www.praetorian.com/wp-content/uploads/2021/10/gokart-logo-1068x756-1.png" className="h-10" alt="Flowbite Logo" />
             {/* <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Golang.png" className="h-10" alt="Flowbite Logo" /> */}
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AdventureXP</span>
