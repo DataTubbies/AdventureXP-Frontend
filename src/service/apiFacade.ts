@@ -1,7 +1,7 @@
 const endpoint = "http://localhost:9002";
 const activityURL = endpoint + "/activities";
 const bookingURL = endpoint + "/bookings";
-const signupUrl = endpoint + "/signup";
+const signupUrl = endpoint + "/customers";
 
 interface Booking {
   companyName: string;
