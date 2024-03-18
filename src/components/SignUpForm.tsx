@@ -1,6 +1,7 @@
 import React from "react";
 import FormInput from "./FormInput";
 import { User } from "../service/apiFacade";
+import { signUp } from "../service/apiFacade";
 
 interface SignUpFormProps {
   customerType: string;
@@ -32,20 +33,15 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
       cvr: customerType === "company" ? data.cvr : null,
     };
     console.log(newUser);
+    signUp(newUser);
   };
 
   return (
     <>
       <div className="bg-black-100 h-[100vh] p-6 space-y-4 md:space-y-6 sm:p-8 ">
-        <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl dark:text-white">
-          Opret en profil 🥸
-        </h1>
+        <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl dark:text-white">Opret en profil 🥸</h1>
 
-        <form
-          className="grid-cols-2 grid gap-4 w-2/3"
-          action="#"
-          onSubmit={handleSubmit}
-        >
+        <form className="grid-cols-2 grid gap-4 w-2/3" action="#" onSubmit={handleSubmit}>
           {customerType === "company" && (
             <>
               <FormInput label="Firma Navn" name="companyName" type="text" />
@@ -57,16 +53,14 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
           <FormInput label="Last Name" name="lastName" type="text" />
           <FormInput label="Email" name="email" type="email" />
           <FormInput label="Street Name" name="streetName" type="text" />
+          <FormInput label="Street Number" name="streetNumber" type="text" />
           <FormInput label="City" name="city" type="text" />
           <FormInput label="Zip code" name="zipCode" type="text" />
           <FormInput label="Phone number" name="phoneNumber" type="text" />
           <FormInput label="Username" name="username" type="text" />
 
           <div>
-            <label
-              htmlFor="password"
-              className="block mb-2 text-sm font-bold text-black-900 dark:text-white"
-            >
+            <label htmlFor="password" className="block mb-2 text-sm font-bold text-black-900 dark:text-white">
               Adgangskode
             </label>
             <input
@@ -79,10 +73,7 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
             />
           </div>
           <div>
-            <label
-              htmlFor="confirm-password"
-              className="block mb-2 text-sm font-bold text-black-900 dark:text-white"
-            >
+            <label htmlFor="confirm-password" className="block mb-2 text-sm font-bold text-black-900 dark:text-white">
               Bekræft Adgangskode
             </label>
             <input
@@ -105,15 +96,9 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
               />
             </div>
             <div className="ml-3 text-sm">
-              <label
-                htmlFor="terms"
-                className="font-light text-black-500 dark:text-black-300"
-              >
+              <label htmlFor="terms" className="font-light text-black-500 dark:text-black-300">
                 I accept the
-                <a
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  href="#"
-                >
+                <a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">
                   Terms and Conditions
                 </a>
               </label>
@@ -127,10 +112,7 @@ export default function SignUpForm({ customerType }: SignUpFormProps) {
           </button>
           <p className="text-sm font-light text-black-500 dark:text-black-400">
             Har du allerede en profil?
-            <a
-              href="#"
-              className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-            >
+            <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
               Log ind her
             </a>
           </p>

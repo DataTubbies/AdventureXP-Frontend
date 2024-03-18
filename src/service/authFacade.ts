@@ -1,6 +1,7 @@
-import { API_URL } from "../settings";
+// import { API_URL } from "../settings";
 import { handleHttpErrors } from "./fetchUtilis";
-const LOGIN_URL = API_URL + "/api/auth/login";
+const LOGIN_URL = "http://localhost:9002/api/auth/login";
+// const LOGIN_URL = API_URL + "/api/auth/login";
 
 export type User = { username: string; password: string; roles?: string[] };
 
@@ -26,6 +27,9 @@ const authProvider = {
       },
       body: JSON.stringify(user_),
     };
+
+    console.log("User: ", user_);
+    console.log(LOGIN_URL);
 
     return fetch(LOGIN_URL, options).then(handleHttpErrors);
   },
