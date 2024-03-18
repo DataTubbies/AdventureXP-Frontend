@@ -43,7 +43,7 @@ const Login = () => {
         <form className="grid-cols-2 grid gap-4 w-2/3" onSubmit={handleSubmit}>
           <div>
             <label className="block mb-2 text-sm font-bold dark:text-white" htmlFor="username">
-              Username
+              Brugernavn
             </label>
             <input
               className="bg-black-50 border border-black-300 text-black-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
@@ -56,7 +56,7 @@ const Login = () => {
           </div>
           <div>
             <label className="block mb-2 text-sm font-bold dark:text-white" htmlFor="password">
-              Password
+              Adgangskode
             </label>
             <input
               className="bg-black-50 border border-black-300 text-black-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
@@ -78,7 +78,7 @@ const Login = () => {
             type="submit"
             className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
-            Login
+            Log ind
           </button>
         </form>
       </div>
