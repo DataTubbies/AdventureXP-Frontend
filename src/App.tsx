@@ -8,6 +8,7 @@ import Logout from "./security/Logout";
 import AboutUs from "./pages/AboutUs";
 import Activities from "./pages/Activities";
 import Bookings from "./pages/Bookings";
+import ActivityPage from "./pages/ActivityPage";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/activities" element={<Activities />} />
+        <Route path="/activities/:id" element={<ActivityPage />} />
+        <Route path="/activities/test" element={<h1>lol</h1>} />
         <Route path="/mybookings" element={<Bookings />} />
         <Route path="/bookings" element={<Bookings />} />
         <Route path="/signup" element={<SignUp />} />
