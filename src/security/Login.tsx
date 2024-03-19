@@ -41,10 +41,15 @@ const Login = () => {
     <>
       <NavHeader />
       <div className="bg-black-100 h-[100vh] p-6 space-y-4">
-        <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl dark:text-white">Log Ind 🥸</h1>
+        <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl dark:text-white">
+          Log Ind 🥸
+        </h1>
         <form className="grid-cols-2 grid gap-4 w-2/3" onSubmit={handleSubmit}>
           <div>
-            <label className="block mb-2 text-sm font-bold dark:text-white" htmlFor="username">
+            <label
+              className="block mb-2 text-sm font-bold dark:text-white"
+              htmlFor="username"
+            >
               Brugernavn
             </label>
             <input
@@ -52,12 +57,17 @@ const Login = () => {
               type="text"
               name="username"
               value={user.username}
-              onChange={(e) => setUser((prev) => ({ ...prev, username: e.target.value }))}
+              onChange={(e) =>
+                setUser((prev) => ({ ...prev, username: e.target.value }))
+              }
               required
             />
           </div>
           <div>
-            <label className="block mb-2 text-sm font-bold dark:text-white" htmlFor="password">
+            <label
+              className="block mb-2 text-sm font-bold dark:text-white"
+              htmlFor="password"
+            >
               Adgangskode
             </label>
             <input
@@ -65,20 +75,25 @@ const Login = () => {
               type="password"
               name="password"
               value={user.password}
-              onChange={(e) => setUser((prev) => ({ ...prev, password: e.target.value }))}
+              onChange={(e) =>
+                setUser((prev) => ({ ...prev, password: e.target.value }))
+              }
               required
             />
           </div>
 
           <p className="text-sm font-light text-black-500 dark:text-black-400">
             Har du ikke allerede en profil?
-            <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+            <a
+              href="#"
+              className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+            >
               opret en her
             </a>
           </p>
           <button
             type="submit"
-            className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            className="w-full text-black-50 bg-astronaut-blue-900 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
             Log ind
           </button>
