@@ -1,4 +1,4 @@
-const endpoint = "http://localhost:9002";
+const endpoint = "http://localhost:9003";
 const activityURL = endpoint + "/activities";
 const bookingURL = endpoint + "/bookings";
 const signupUrl = endpoint + "/customers";
@@ -17,6 +17,7 @@ interface Booking {
 }
 
 interface Activity {
+  id: string;
   capacity: string;
   ageLimit: string;
   isActive: boolean;
@@ -25,6 +26,7 @@ interface Activity {
   name: string;
   price: string;
   base64image: string;
+  description: string;
 }
 interface User {
   isCompany: boolean;
@@ -44,6 +46,11 @@ interface User {
 
 async function getActivities() {
   const res = await fetch(activityURL);
+  return await res.json();
+}
+
+async function getActivity(id: string) {
+  const res = await fetch(`${activityURL}/${id}`);
   return await res.json();
 }
 
@@ -92,5 +99,12 @@ async function signUp(user: User) {
   return await res.json();
 }
 
-export { getActivities, getBookings, addBooking, addActivities, signUp };
+export {
+  getActivities,
+  getActivity,
+  getBookings,
+  addBooking,
+  addActivities,
+  signUp,
+};
 export type { Booking, Activity, User };

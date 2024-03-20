@@ -1,6 +1,6 @@
 // import { API_URL } from "../settings";
 import { handleHttpErrors } from "./fetchUtilis";
-const LOGIN_URL = "http://localhost:9002/api/auth/login";
+const LOGIN_URL = "http://localhost:9003/api/auth/login";
 // const LOGIN_URL = API_URL + "/api/auth/login";
 
 export type User = { username: string; password: string; roles?: string[] };
