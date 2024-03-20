@@ -21,9 +21,7 @@ export default function Activities() {
     <>
       <NavHeader />
       <div className="bg-black-100 h-screen pt-8">
-        <h2 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl">
-          Activities
-        </h2>
+        <h2 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl">Aktiviteter</h2>
 
         {activities.map((activity) => (
           <Link key={activity.id} to={`/activities/${activity.id}`}>

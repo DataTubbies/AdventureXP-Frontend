@@ -9,6 +9,7 @@ import AboutUs from "./pages/AboutUs";
 import Activities from "./pages/Activities";
 import Bookings from "./pages/Bookings";
 import ActivityPage from "./pages/ActivityPage";
+import BookingForm from "./components/BookingForm";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/activities/test" element={<h1>lol</h1>} />
         <Route path="/mybookings" element={<Bookings />} />
         <Route path="/bookings" element={<Bookings />} />
+        <Route path="/booking" element={<BookingForm />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
