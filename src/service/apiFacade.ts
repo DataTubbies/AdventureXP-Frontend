@@ -1,19 +1,13 @@
 const endpoint = "http://localhost:9003";
 const activityURL = endpoint + "/activities";
+const activityEventURL = endpoint + "/activityEvents";
 const bookingURL = endpoint + "/bookings";
 const signupUrl = endpoint + "/customers";
 
 interface Booking {
-  companyName: string;
-  customerFirstName: string;
-  customerLastName: string;
-  streetName: string;
-  streetNumber: string;
-  zipCode: string;
-  city: string;
-  phoneNumber: string;
-  bookingNumber: string;
-  activity: string;
+  eventId: string;
+  customerId: string;
+  participants: string;
 }
 
 interface Activity {
@@ -28,6 +22,14 @@ interface Activity {
   base64image: string;
   description: string;
 }
+
+interface ActivityEvent {
+  id: string;
+  capacity: string;
+  activityId: string;
+  startTime: string;
+}
+
 interface User {
   isCompany: boolean;
   username: string;
@@ -56,6 +58,11 @@ async function getActivity(id: string) {
 
 async function getBookings() {
   const res = await fetch(bookingURL);
+  return await res.json();
+}
+
+async function getActivityEventsByActivity(id: string) {
+  const res = await fetch(`${activityEventURL}/${id}`);
   return await res.json();
 }
 
@@ -99,12 +106,5 @@ async function signUp(user: User) {
   return await res.json();
 }
 
-export {
-  getActivities,
-  getActivity,
-  getBookings,
-  addBooking,
-  addActivities,
-  signUp,
-};
+export { getActivities, getActivity, getActivityEventsByActivity, getBookings, addBooking, addActivities, signUp };
 export type { Booking, Activity, User };
