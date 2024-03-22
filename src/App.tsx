@@ -9,7 +9,7 @@ import AboutUs from "./pages/AboutUs";
 import Activities from "./pages/Activities";
 import Bookings from "./pages/Bookings";
 import ActivityPage from "./pages/ActivityPage";
-import Booking from "./components/Booking"
+import Booking from "./components/Booking";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/activities/test" element={<h1>lol</h1>} />
         <Route path="/mybookings" element={<Bookings />} />
         <Route path="/bookings" element={<Bookings />} />
-        <Route path="/booking" element={<Booking />} />
+        <Route path="/booking/:id" element={<Booking />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />

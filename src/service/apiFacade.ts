@@ -33,6 +33,10 @@ interface Activity {
   description: string;
 }
 
+interface Customer {
+  id: string;
+}
+
 interface User {
   isCompany: boolean;
   username: string;
@@ -64,6 +68,12 @@ async function getActivityEventsByActivityId(id: string){
   return await res.json();
 }
 
+
+async function getActivityEventById(id: string) {
+  const res = await fetch(`${activityEventURL}/${id}`);
+  return await res.json();
+}
+
 async function getActivity(id: string) {
   const res = await fetch(`${activityURL}/${id}`);
   return await res.json();
@@ -74,9 +84,9 @@ async function getBookings() {
   return await res.json();
 }
 
-async function getActivityEventsByActivity(id: string) {
-  const res = await fetch(`${activityEventURL}/${id}`);
-  return await res.json();
+async function getCustomerId() {
+  const res = await fetch(signupUrl);
+  return await res.json(); 
 }
 
 async function addBooking(booking: Booking) {
@@ -119,5 +129,5 @@ async function signUp(user: User) {
   return await res.json();
 }
 
-export { getActivities, getActivityEvents, getActivity, getBookings, addBooking, addActivities, signUp, getActivityEventsByActivityId};
-export type { Booking, Activity, User, ActivityEvent };
+export { getActivities, getActivityEvents, getActivity, getBookings, addBooking, addActivities, signUp, getActivityEventsByActivityId, getCustomerId};
+export type { Booking, Activity, User, ActivityEvent, Customer };
