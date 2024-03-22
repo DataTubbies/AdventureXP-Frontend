@@ -26,7 +26,7 @@ export default function Activity() {
               alt={activity.base64image}
             />
             <p style={{ display: "inline", flexDirection: "column" }}>
-              {recipe.ingredients}
+              {activity.ageLimit} years
             </p>
           </div>
           <hr />
