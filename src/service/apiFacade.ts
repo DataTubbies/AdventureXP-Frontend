@@ -1,11 +1,12 @@
 const endpoint = "http://localhost:9003";
 const activityURL = endpoint + "/activities";
-const activityEventURL = endpoint + "/activityEvents";
+const activityEventURL = endpoint + "/activityevents";
 const bookingURL = endpoint + "/bookings";
 const signupUrl = endpoint + "/customers";
 const activityEvents = endpoint + "/activityevents";
 
 interface Booking {
+  id: string;
   customerId: string;
   activityEventId: string;
   participants: number;
@@ -34,7 +35,7 @@ interface Activity {
 }
 
 interface User {
-  isCompany: boolean;
+  company: boolean;
   username: string;
   password: string;
   firstName: string;
@@ -54,12 +55,12 @@ async function getActivities() {
   return await res.json();
 }
 
-async function getActivityEvents(id: string){
+async function getActivityEvents(id: string) {
   const res = await fetch(`${activityEvents}/${id}`);
   return await res.json();
 }
 
-async function getActivityEventsByActivityId(id: string){
+async function getActivityEventsByActivityId(id: string) {
   const res = await fetch(`${activityEvents}/activity/${id}`);
   return await res.json();
 }
@@ -74,8 +75,13 @@ async function getBookings() {
   return await res.json();
 }
 
-async function getActivityEventsByActivity(id: string) {
+async function getActivityEventsById(id: string) {
   const res = await fetch(`${activityEventURL}/${id}`);
+  return await res.json();
+}
+
+async function getCustomerBydId(id: string) {
+  const res = await fetch(`${signupUrl}/${id}`);
   return await res.json();
 }
 
@@ -119,5 +125,5 @@ async function signUp(user: User) {
   return await res.json();
 }
 
-export { getActivities, getActivityEvents, getActivity, getBookings, addBooking, addActivities, signUp, getActivityEventsByActivityId};
+export { getActivities, getActivityEvents, getActivity, getBookings, addBooking, addActivities, signUp, getActivityEventsByActivityId, getActivityEventsById, getCustomerBydId };
 export type { Booking, Activity, User, ActivityEvent };
