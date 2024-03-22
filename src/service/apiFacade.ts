@@ -1,19 +1,23 @@
 const endpoint = "http://localhost:9003";
 const activityURL = endpoint + "/activities";
+const activityEventURL = endpoint + "/activityEvents";
 const bookingURL = endpoint + "/bookings";
 const signupUrl = endpoint + "/customers";
+const activityEvents = endpoint + "/activityevents";
 
 interface Booking {
-  companyName: string;
-  customerFirstName: string;
-  customerLastName: string;
-  streetName: string;
-  streetNumber: string;
-  zipCode: string;
-  city: string;
-  phoneNumber: string;
-  bookingNumber: string;
-  activity: string;
+  customerId: string;
+  activityEventId: string;
+  participants: number;
+}
+
+interface ActivityEvent {
+  id: string;
+  activityId: string;
+  customerId: string;
+  capacity: number;
+  availableSpots: number;
+  startTime: string;
 }
 
 interface Activity {
@@ -28,6 +32,7 @@ interface Activity {
   base64image: string;
   description: string;
 }
+
 interface User {
   isCompany: boolean;
   username: string;
@@ -49,6 +54,16 @@ async function getActivities() {
   return await res.json();
 }
 
+async function getActivityEvents(id: string){
+  const res = await fetch(`${activityEvents}/${id}`);
+  return await res.json();
+}
+
+async function getActivityEventsByActivityId(id: string){
+  const res = await fetch(`${activityEvents}/activity/${id}`);
+  return await res.json();
+}
+
 async function getActivity(id: string) {
   const res = await fetch(`${activityURL}/${id}`);
   return await res.json();
@@ -56,6 +71,11 @@ async function getActivity(id: string) {
 
 async function getBookings() {
   const res = await fetch(bookingURL);
+  return await res.json();
+}
+
+async function getActivityEventsByActivity(id: string) {
+  const res = await fetch(`${activityEventURL}/${id}`);
   return await res.json();
 }
 
@@ -99,12 +119,5 @@ async function signUp(user: User) {
   return await res.json();
 }
 
-export {
-  getActivities,
-  getActivity,
-  getBookings,
-  addBooking,
-  addActivities,
-  signUp,
-};
-export type { Booking, Activity, User };
+export { getActivities, getActivityEvents, getActivity, getBookings, addBooking, addActivities, signUp, getActivityEventsByActivityId};
+export type { Booking, Activity, User, ActivityEvent };
