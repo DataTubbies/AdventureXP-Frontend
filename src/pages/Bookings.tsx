@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import NavHeader from "../components/NavHeader";
 
 export default function Bookings() {
+  useEffect(() => {
+    document.title = "Bookings - AdventureXP";
+  });
   return (
     <>
       <NavHeader />
