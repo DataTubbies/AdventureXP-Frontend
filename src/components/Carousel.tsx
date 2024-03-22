@@ -19,33 +19,26 @@ export default function Carousel() {
       <div className="carousel-item">
         <img
           //Mini golf
-          src="https://i.ytimg.com/vi/-VLKjoL0AEk/maxresdefault.jpg"
+          src="https://images.pexels.com/photos/6370072/pexels-photo-6370072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           alt="carousel-item"
-          style={{ width: "100%" }}
+          style={{ width: "100%", height: "10%" }}
         />
       </div>
       <div className="carousel-item h-full">
         <img
           // Go-kart
-          src="https://files.guidedanmark.org/files/484/214259_Racehall.jpg"
+          src="https://images.pexels.com/photos/861464/pexels-photo-861464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           alt="carousel-item"
-          style={{ width: "100%" }}
+          style={{ width: "100%", height: "10%" }}
         />
       </div>
+
       <div className="carousel-item">
         <img
-          // Laser tag
-          src="https://airtrix.dk/wp-content/uploads/2023/12/LaserTag-AirParty.jpg"
+          // Paint Ball
+          src="https://images.pexels.com/photos/16236298/pexels-photo-16236298/free-photo-of-maend-leg-sport-sta.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           alt="carousel-item"
-          style={{ width: "100%" }}
-        />
-      </div>
-      <div className="carousel-item">
-        <img
-          // Sumo wrestling
-          src="https://www.funcenter.no/wp-content/uploads/2019/10/20230610_162634.jpg"
-          alt="carousel-item"
-          style={{ width: "100%" }}
+          style={{ width: "100%", height: "10%" }}
         />
       </div>
     </Slider>
