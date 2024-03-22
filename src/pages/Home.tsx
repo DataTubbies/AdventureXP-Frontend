@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 // import { getInfo, Info } from "../service/apiFacade";
+import Carousel from "../components/Carousel";
 
 import NavHeader from "../components/NavHeader";
 
@@ -8,8 +9,8 @@ export default function Home() {
     <>
       <NavHeader />
       <div className="bg-black-100 h-[100vh]">
-        <h2>Home</h2>
-        <p>Welcome to our homepage! (mainly meant to learn React Router)</p>
+        <h2>Indsæt super sej overskrift eller tekst her :)</h2>
+        <Carousel />
       </div>
     </>
   );
