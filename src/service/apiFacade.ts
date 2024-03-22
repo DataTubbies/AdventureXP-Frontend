@@ -1,5 +1,6 @@
 const endpoint = "http://localhost:9003";
 const activityURL = endpoint + "/activities";
+const activityEventURL = endpoint + "/activityEvents";
 const bookingURL = endpoint + "/bookings";
 const signupUrl = endpoint + "/customers";
 const activityEvents = endpoint + "/activityevents";
@@ -31,6 +32,7 @@ interface Activity {
   base64image: string;
   description: string;
 }
+
 interface User {
   isCompany: boolean;
   username: string;
@@ -69,6 +71,11 @@ async function getActivity(id: string) {
 
 async function getBookings() {
   const res = await fetch(bookingURL);
+  return await res.json();
+}
+
+async function getActivityEventsByActivity(id: string) {
+  const res = await fetch(`${activityEventURL}/${id}`);
   return await res.json();
 }
 

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import NavHeader from "../components/NavHeader";
 import { getActivity, Activity as ApiActivity } from "../service/apiFacade";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import BookingButton from "../components/BookingButton";
 import { getActivityEventsByActivityId, ActivityEvent as ApiEventActivity } from "../service/apiFacade";
 
@@ -30,6 +29,18 @@ export default function ActivityPage() {
       setActivityEvents(res);
     });
   }, [id]);
+
+  // const mockActivityEvents[] = [{
+  //   id: "1",
+  //   capacity: "5",
+  //   activityId: "234324342",
+  //   startTime: "2022-12-24T18:00:00",
+  // },{
+  //   id: "1",
+  //   capacity: "5",
+  //   activityId: "234324342",
+  //   startTime: "2022-12-24T19:00:00",
+  // }];
 
   return (
     <>
@@ -83,6 +94,7 @@ export default function ActivityPage() {
                   <div className="h-full py-4 px-6 border border-green-500 border-t-0 border-l-0 rounded-br-xl">
                     <h3 className="text-2xl font-bold text-md mb-6">Book din tid i dag!</h3>
 
+
                     {activityEvents.map((activityEvent) => (
                       <div key={activityEvent.id} className="mb-4">
                         <BookingButton startTime={activityEvent.startTime} availableSpots={activityEvent.availableSpots} activityId={activityEvent.activityId} />
@@ -105,7 +117,6 @@ export default function ActivityPage() {
                         </button>
                       </Link>
                     )} */}
-
                     <br />
                     <br />
 
